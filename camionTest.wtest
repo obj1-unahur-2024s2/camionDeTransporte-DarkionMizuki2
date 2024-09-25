@@ -22,8 +22,15 @@ describe "Testeo del camion" {
   test "supongamos que el camion carga una cosa 1 que pesa 2kg y otra cosa 2 que pesa 3 kg. Si determino el nivel de peligrosidad a 20 de la primer cosa, ahora el nivel de peligrosidad de cosa 1 es de 20"{
     camion.cargar(cosaUno)
     camion.cargar(cosaDos)
-    camion.laPrimerCosaCargadaDebeTenerUnNivelDePeligrosidadDe(20)
+    camion.laPrimerCosaCargadaDebeTener(20)
     assert.equals(20, cosaUno.nivelDePeligrosidad())
+  }
+  test "supongamos que el camion carga una cosa que tiene un nivel de peligrosidad de 20 y otra cosa 2 que tiene un nivel de peligrosidad de 40. Entonces si quiero saber que cosa supera a un nivel de pelogrisidad de 30 seria la cosa 2"{
+    camion.cargar(cosaUno)
+    camion.cargar(cosaDos)
+    cosaUno.nivelDePeligrosidad(20)
+    cosaDos.nivelDePeligrosidad(40)
+    assert.equals([cosaDos], camion.obtenerTodasLasCosasQueSuperanA(30))
   }
 }
     
