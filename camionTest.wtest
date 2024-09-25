@@ -5,9 +5,19 @@ describe "Testeo del camion" {
   test "el camion comienza con 1000 kg de peso." {
     assert.equals(1000, camion.peso())
   }
-  test "supongamos que el camion cargar una cosa 1 que pesa 2kg y cosa 2 que pesa 3kg. lo cual todos los pesos sus cosas cargadas no son impares"{
+  test "supongamos que el camion carga una cosa 1 que pesa 2kg y cosa 2 que pesa 3kg. lo cual todos los pesos sus cosas cargadas no son impares"{
     camion.cargar(cosaUno)
     camion.cargar(cosaDos)
     assert.notThat(camion.saberSiLosPesosDeTodasLasCosasSonNumerosImpares())
   }
+  test "supongamos que el camion carga una cosa 1 que pesa 2kg y cosa 2 que pesa 3kg. Si quiero saber si una cosa del camion pesa 2kg, si lo hay"{
+    camion.cargar(cosaUno)
+    camion.cargar(cosaDos)
+    assert.that(camion.hayAlgunaCosaQuePesa(2))
+  }
+  test "en cambio si el camion carga solo cosa 2 que pesa 3kg. Si quiero saber si una cosa del camion pesa 2kg, no lo hay"{
+    camion.cargar(cosaDos)
+    assert.notThat(camion.hayAlgunaCosaQuePesa(2))
+  }
 }
+    
