@@ -19,5 +19,11 @@ describe "Testeo del camion" {
     camion.cargar(cosaDos)
     assert.notThat(camion.hayAlgunaCosaQuePesa(2))
   }
+  test "supongamos que el camion carga una cosa 1 que pesa 2kg y otra cosa 2 que pesa 3 kg. Si determino el nivel de peligrosidad a 20 de la primer cosa, ahora el nivel de peligrosidad de cosa 1 es de 20"{
+    camion.cargar(cosaUno)
+    camion.cargar(cosaDos)
+    camion.laPrimerCosaCargadaDebeTenerUnNivelDePeligrosidadDe(20)
+    assert.equals(20, cosaUno.nivelDePeligrosidad())
+  }
 }
     
